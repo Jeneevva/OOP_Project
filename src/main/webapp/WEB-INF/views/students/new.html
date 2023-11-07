@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Student</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/students}" th:object="${student}">
+    <label for="name">ФИО: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+
+    <label for="tel_number">Номер телефона: </label>
+    <input type="text" th:field="*{tel_number}" id="tel_number"/>
+    <div style="color: red" th:if="${#fields.hasErrors('tel_number')}" th:errors="*{tel_number}">Phone Number Error</div>
+    <br/>
+
+    <label for="address">Адрес: </label>
+    <input type="text" th:field="*{address}" id="address"/>
+    <div style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</div>
+    <br/>
+
+    <label for="link">Ссылка на инст: </label>
+    <input type="text" th:field="*{link}" id="link"/>
+    <div style="color: red" th:if="${#fields.hasErrors('link')}" th:errors="*{link}">Instagram Link Error</div>
+    <br/>
+
+    <label for="uni_id">ID: </label>
+    <input type="text" th:field="*{uni_id}" id="uni_id"/>
+    <div style="color: red" th:if="${#fields.hasErrors('uni_id')}" th:errors="*{uni_id}">Uni ID Error</div>
+    <br/>
+
+    <input type="submit" value="Create"/>
+</form>
+
+</body>
+</html>

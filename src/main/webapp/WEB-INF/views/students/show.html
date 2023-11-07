@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show student</title>
+</head>
+<body>
+<p th:text="${'ФИО: ' + student.name}">ФИО:</p>
+<p th:text="${'Номер телефона: ' + student.tel_number}">Номер телефона:</p>
+<p th:text="${'Адрес: ' + student.address}">Адрес:</p>
+<p th:text="${'Ссылка на инст: ' + student.link}">Ссылка на инст:</p>
+<p th:text="${'ID: ' + student.uni_id}">ID:</p>
+
+<a th:href="@{/students/{uni_id}/edit(uni_id=${student.uni_id})}">Редактировать</a>
+
+<form th:method="DELETE" th:action="@{/students/{uni_id}(uni_id=${student.uni_id})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

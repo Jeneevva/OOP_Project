@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import project.models.Student;
 
-import java.sql.Connection;
 import java.util.List;
 
 @Component
@@ -39,7 +38,7 @@ public class StudentDAO {
                 updatedStudent.getName(), updatedStudent.getTel_number(), updatedStudent.getAddress(), updatedStudent.getLink(), uni_id);
     }
 
-    public void delete (int uni_id){
-        jdbcTemplate.update("DELETE FROM Student WHERE uni_id=?, uni_id");
+    public void delete(int uni_id) {
+        jdbcTemplate.update("DELETE FROM Student WHERE uni_id = ?", uni_id);
     }
 }
